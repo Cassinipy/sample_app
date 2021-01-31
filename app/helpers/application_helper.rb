@@ -7,4 +7,8 @@ module ApplicationHelper
             "#{page_title} | #{base_title}"
         end
     end
+    def initials(name)
+        name = name.split(' ')
+        name[0][0] + '.' + name[1][0]+'.'
+    end
 end
