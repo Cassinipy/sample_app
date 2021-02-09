@@ -25,6 +25,12 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     # Try to log in before activation.
     log_in_as(user)
     assert_not is_logged_in?
+    log_in_as(users(:michael))
+    get users_path, page: 2
+    assert_no_match user.name, response.body
+    get user_path(user)
+    assert_redirected_to root_url
+    delete logout_path
     # Invalid activation token
     get edit_account_activation_path("invalid token")
     assert_not is_logged_in?
