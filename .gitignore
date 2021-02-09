@@ -15,3 +15,6 @@ spring/
 /log/*
 !/log/.keep
 /tmp
+
+# Пропуск загруженных тестовых изображений.
+/public/uploads
